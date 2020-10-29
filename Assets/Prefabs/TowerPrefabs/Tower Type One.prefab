@@ -97,6 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   firerate: 10
-  range: 10
+  range: 4
   projectile: {fileID: 1417814965152973114, guid: e4911e81b7157bc449ad2cf97e73c534,
     type: 3}

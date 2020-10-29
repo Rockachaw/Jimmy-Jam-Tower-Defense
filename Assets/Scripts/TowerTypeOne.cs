@@ -37,43 +37,42 @@ public class TowerTypeOne : MonoBehaviour
         {
             return;
         }
-        Debug.LogError("aaa: " + enemyArray[0]);
 
-        EnemyRanger[] rangerScriptReferenceArray = new EnemyRanger[enemyArray.Length];
+        EnemyScript[] scriptReferenceArray = new EnemyScript[enemyArray.Length];
         for(int i = 0; i < enemyArray.Length; i++)
         {
-            rangerScriptReferenceArray[i] = (EnemyRanger)enemyArray[i].GetComponent(typeof(EnemyRanger));
+            scriptReferenceArray[i] = (EnemyScript)enemyArray[i].GetComponent(typeof(EnemyScript));
         }
 
-        List<GameObject> enemiesInRange = null;
-        List<EnemyRanger> inRangeScripts = null;
+        List<GameObject> enemiesInRange = new List<GameObject>();
+        List<EnemyScript> inRangeScripts = new List<EnemyScript>();
         for(int i = 0; i < enemyArray.Length; i++)
         {
-            if(Vector2.Distance(transform.position, rangerScriptReferenceArray[i].GetPosition()) <= range)
+            if(Vector2.Distance(transform.position, scriptReferenceArray[i].GetPosition()) <= range)
             {
                 enemiesInRange.Add(enemyArray[i]);
-                inRangeScripts.Add(rangerScriptReferenceArray[i]);
+                inRangeScripts.Add(scriptReferenceArray[i]);
             }
         }
         if(enemiesInRange.Count != 0)
         {
-            List<GameObject> furthestEnemies = null;
-            List<EnemyRanger> furthestScripts = null;
+            List<GameObject> furthestEnemies = new List<GameObject>();
+            List<EnemyScript> furthestScripts = new List<EnemyScript>();
 
             int furthestWaypoint = 0;
             for (int i = 0; i < enemiesInRange.Count; i++)
             {
-                if (rangerScriptReferenceArray[i].GetWaypointIndex() > furthestWaypoint)
+                if (scriptReferenceArray[i].GetWaypointIndex() > furthestWaypoint)
                 {
-                    furthestWaypoint = rangerScriptReferenceArray[i].GetWaypointIndex();
+                    furthestWaypoint = scriptReferenceArray[i].GetWaypointIndex();
                 }
             }
             for (int i = 0; i < enemiesInRange.Count; i++)
             {
-                if (rangerScriptReferenceArray[i].GetWaypointIndex() >= furthestWaypoint)
+                if (scriptReferenceArray[i].GetWaypointIndex() >= furthestWaypoint)
                 {
                     furthestEnemies.Add(enemiesInRange[i]);
-                    furthestScripts.Add(rangerScriptReferenceArray[i]);
+                    furthestScripts.Add(scriptReferenceArray[i]);
                 }
             }
 
@@ -98,6 +97,8 @@ public class TowerTypeOne : MonoBehaviour
         GameObject proj = (GameObject)Instantiate(projectile, transform);
         ProjectileScript projScript = (ProjectileScript)proj.GetComponent(typeof(ProjectileScript));
         projScript.SetTarget(targetEnemy);
+        projScript.SetPosition(transform.position);
+        projScript.Target();
 
         cooldown = firerate / 60.0f;
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 571329965794934402}
   - component: {fileID: 571329965794934429}
-  - component: {fileID: 571329965794934428}
+  - component: {fileID: 5592856836022063387}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Enemy
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &571329965794934428
+--- !u!114 &5592856836022063387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,8 +92,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 571329965794934431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca97a313c83dcf94aaea14b28d9fa275, type: 3}
+  m_Script: {fileID: 11500000, guid: 604b748d3cecbb542b51612683a9bb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 10
+  maxHealth: 10
+  moneyDropped: 5
+  enemySpriteArray:
+  - {fileID: 1225040132956449219, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -5516128406240033009, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -3043951431978777597, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 6430015538727177390, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 8798350428012696891, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -4185553563579806572, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -4237608916335480455, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 4782843781573081829, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 5681070510403720866, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -257074263448665796, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: -6976061241461439519, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 5510026006105519202, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}

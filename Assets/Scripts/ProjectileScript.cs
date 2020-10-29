@@ -4,27 +4,61 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public GameObject target;
     public Sprite projectileSprite;
     public float speed;
     public float damage;
+    public float hitboxSize;
+
+    private GameObject target;
+    private Vector2 dir;
 
     public void SetTarget(GameObject newTarget)
     {
         target = newTarget;
+        if(target == null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+    }
+
+    public void Target()
+    {
+        dir = target.transform.position - transform.position;
+        dir = dir.normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 dir = target.transform.position - transform.position;
-        dir = dir.normalized;
+        if (!GetComponent<Renderer>().isVisible)
+        {
+            Destroy(gameObject);
+        }
+
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
 
-        if (Vector2.Distance(transform.position, target.transform.position) <= 0.04f)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
         {
-            //Damage enemy
-            EnemyRanger enemyScript = (EnemyRanger)target.GetComponent(typeof(EnemyRanger));
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if(distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if(nearestEnemy != null && shortestDistance < hitboxSize)
+        {
+            EnemyScript enemyScript = (EnemyScript)nearestEnemy.GetComponent(typeof(EnemyScript));
             enemyScript.GetDamaged(damage);
             Destroy(gameObject);
         }
