@@ -38,7 +38,7 @@ public class EnemyRanger : MonoBehaviour
         dir = dir.normalized;
         
         //Move
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir * speed * Time.deltaTime, Space.World);
         
         //Reached waypoint, find next one.
         if (Vector2.Distance(transform.position, target.position) <= 0.04f)
@@ -121,5 +121,18 @@ public class EnemyRanger : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public int GetWaypointIndex()
+    {
+        return waypointIndex;
+    }
+    public float GetDistanceToNextWaypoint()
+    {
+        return Vector2.Distance(transform.position, target.position);
+    }
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }
