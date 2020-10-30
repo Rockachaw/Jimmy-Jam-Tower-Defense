@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float speed;
+    public float maxSpeed;
     public float maxHealth;
     public float moneyDropped;
     public Sprite[] enemySpriteArray;
@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     private Vector2 healthBarPos;
     
     private float health;
+    private float speed;
 
     private SpriteRenderer enemySpriteRenderer;
 
@@ -37,6 +38,7 @@ public class EnemyScript : MonoBehaviour
         target = Waypoints.points[0];
         healthBarLength = Screen.width / 6;
         health = maxHealth;
+        speed = maxSpeed;
     }
 
     void Update()
@@ -138,6 +140,11 @@ public class EnemyScript : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void GetSlowed(float slowPercent)
+    {
+        speed = speed * (1f - slowPercent);
     }
 
     public int GetWaypointIndex()

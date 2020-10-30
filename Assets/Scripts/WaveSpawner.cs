@@ -10,21 +10,25 @@ public class WaveSpawner : MonoBehaviour
     public Transform enemyPrefab;
     public Transform spawnPoint;
 
-    public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    public float timeBetweenWaves = 1f;
+    private float countdown;
 
     private int waveNumber = 0;
 
     void Update()
     {
-        if (countdown <= 0f)
+        GameObject[] enemyArray = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemyArray.Length == 0 && countdown <= 0)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
+        else if(countdown > 0)
+        {
+            countdown -= Time.deltaTime;
+        }
+        //Only increment countdown after enemies have died
 
-        countdown -= Time.deltaTime;
-        
     }
     IEnumerator SpawnWave()
     {

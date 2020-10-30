@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &571329965794934431
+--- !u!1 &4193339464559910700
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 571329965794934402}
-  - component: {fileID: 571329965794934429}
-  - component: {fileID: 5592856836022063387}
+  - component: {fileID: 1491043877854434514}
+  - component: {fileID: 8894205576565416359}
+  - component: {fileID: 3481592167195338045}
   m_Layer: 0
-  m_Name: Ranger
+  m_Name: Ram
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &571329965794934402
+--- !u!4 &1491043877854434514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571329965794934431}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.16876, y: 3.111999, z: 0}
+  m_GameObject: {fileID: 4193339464559910700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.7421055, y: 4.2232814, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &571329965794934429
+--- !u!212 &8894205576565416359
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571329965794934431}
+  m_GameObject: {fileID: 4193339464559910700}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,43 +71,42 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1225040132956449219, guid: 20f0cd1d272c1c94389482309e808d8a,
-    type: 3}
+  m_Sprite: {fileID: 482224115848743823, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.23, y: 0.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5592856836022063387
+--- !u!114 &3481592167195338045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571329965794934431}
+  m_GameObject: {fileID: 4193339464559910700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 604b748d3cecbb542b51612683a9bb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
-  maxHealth: 10
-  moneyDropped: 5
+  maxSpeed: 0.7
+  maxHealth: 50
+  moneyDropped: 30
   enemySpriteArray:
-  - {fileID: 1225040132956449219, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -5516128406240033009, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -3043951431978777597, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: 6430015538727177390, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: 8798350428012696891, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -4185553563579806572, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -4237608916335480455, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: 4782843781573081829, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: 5681070510403720866, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -257074263448665796, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: -6976061241461439519, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
-  - {fileID: 5510026006105519202, guid: 20f0cd1d272c1c94389482309e808d8a, type: 3}
+  - {fileID: 482224115848743823, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: 4077141289403366788, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -1081540647600280386, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: 5289104037576951626, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: 5356414408156727081, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: 608853047462289349, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -3583795935279865744, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -5488734945060125502, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -1808139288713159099, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -5938620023045150499, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -6003663840556137619, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}
+  - {fileID: -6251630303803870249, guid: 321a43c97d7eb934cba8bb7bf5986ec5, type: 3}

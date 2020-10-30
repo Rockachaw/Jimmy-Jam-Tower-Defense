@@ -9,6 +9,7 @@ public class ProjectileScript : MonoBehaviour
     public float damage;
     public float hitboxSize;
     public int pierces;
+    public float slowPercent;
     public float rotateAdjustment;
 
     private GameObject target;
@@ -77,6 +78,7 @@ public class ProjectileScript : MonoBehaviour
         {
             EnemyScript enemyScript = (EnemyScript)nearestEnemy.GetComponent(typeof(EnemyScript));
             hitEnemies.Add(nearestEnemy);
+            enemyScript.GetSlowed(slowPercent);
             enemyScript.GetDamaged(damage);
             pierces--;
             if(pierces < 0)
