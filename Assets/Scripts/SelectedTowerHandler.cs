@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SelectedTowerHandler : MonoBehaviour
 {
-    Tower currTower = null;
-    Tower prevTower = null;
+    Pedestal currTower = null;
+    Pedestal prevTower = null;
 
-    public void setCurrTower(Tower tower)
+    public void setCurrTower(Pedestal tower)
     {
         prevTower = currTower;
         currTower = tower;
@@ -15,5 +15,22 @@ public class SelectedTowerHandler : MonoBehaviour
         {
             prevTower.Deselect();
         }
+    }
+
+    public void stopSelecting()
+    {
+        try
+        {
+            currTower.Deselect();
+        }
+        catch
+        {
+            Debug.LogError("Failed to deselect currTower");
+        }
+    }
+
+    public Pedestal GetSelectedPedestal()
+    {
+        return currTower;
     }
 }

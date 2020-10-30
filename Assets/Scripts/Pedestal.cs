@@ -1,9 +1,10 @@
 ﻿using System;
+//using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Pedestal : MonoBehaviour
 {
     public GameObject towerPrefab;
 
@@ -40,22 +41,28 @@ public class Tower : MonoBehaviour
         }
         return false;
     }
-    public void CreateTower(GameObject newTowerPrefab)
+    public void CreateTower(GameObject newTowerPrefab, float cost)
     {
         towerPrefab = newTowerPrefab;
         tower = (GameObject)Instantiate(towerPrefab, gameObject.transform.position, gameObject.transform.rotation);
-        GameObject towerCanvas = GameObject.Find("TowerCanvas");
-        tower.transform.SetParent(towerCanvas.transform);
+        TowerScript scriptRef = (TowerScript)tower.GetComponent(typeof(TowerScript));
+        scriptRef.AddCost(cost);
+        //GameObject towerCanvas = GameObject.Find("TowerCanvas");
+        //tower.transform.SetParent(towerCanvas.transform);
     }
     public void DestroyTower()
     {
         try
         {
-            tower = null;
+            Destroy(tower);
         }
         catch
         {
             Debug.LogError("Failed to destroy towerObject.");
         }
+    }
+    public GameObject GetTower()
+    {
+        return tower;
     }
 }

@@ -109,7 +109,7 @@ public class EnemyScript : MonoBehaviour
     void OnGUI()
     {
         healthBarPos = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Box(new Rect(healthBarPos.x - 25, Screen.height - healthBarPos.y - 40, 60, 20), health + "/" + maxHealth);
+        GUI.Box(new Rect(healthBarPos.x - 25, Screen.height - healthBarPos.y - 40, 60, 20), (int)health + "/" + maxHealth);
     }
 
     void GetNextWaypoint()

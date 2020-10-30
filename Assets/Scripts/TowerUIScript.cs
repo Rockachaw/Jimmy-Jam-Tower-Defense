@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TowerTypeOneUIScript : MonoBehaviour
+public class TowerUIScript : MonoBehaviour
 {
-    public float price = 10f;
+    public float price;
     public GameObject towerPrefab;
 
     void OnMouseDown()
@@ -16,13 +16,13 @@ public class TowerTypeOneUIScript : MonoBehaviour
         GameObject hudReference = GameObject.Find("TowerHUD");
         TowerHUDHandler hudScript = (TowerHUDHandler)hudReference.GetComponent(typeof(TowerHUDHandler));
 
-        GameObject newTowerReference = hudScript.GetSelectedPedestal();
-        Tower towerScript = (Tower)newTowerReference.GetComponent(typeof(Tower));
+        GameObject newPedestalReference = hudScript.GetSelectedPedestal();
+        Pedestal pedestalScript = (Pedestal)newPedestalReference.GetComponent(typeof(Pedestal));
 
-        if (moneyScript.GetMoney() >= price && !towerScript.TowerExists())
+        if (moneyScript.GetMoney() >= price && !pedestalScript.TowerExists())
         {
             moneyScript.LoseMoney(price);
-            towerScript.CreateTower(towerPrefab);
+            pedestalScript.CreateTower(towerPrefab, price);
         }
     }
 

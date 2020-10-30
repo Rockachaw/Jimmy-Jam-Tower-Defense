@@ -8,9 +8,17 @@ public class ProjectileScript : MonoBehaviour
     public float speed;
     public float damage;
     public float hitboxSize;
+    public int pierces;
+    public float rotateAdjustment;
 
     private GameObject target;
     private Vector2 dir;
+    private List<GameObject> hitEnemies = new List<GameObject>();
+
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
 
     public void SetTarget(GameObject newTarget)
     {
@@ -25,11 +33,20 @@ public class ProjectileScript : MonoBehaviour
     {
         transform.position = newPosition;
     }
+    
+    public void SetRotation(Quaternion newRotation)
+    {
+        transform.rotation = newRotation;
+    }
 
     public void Target()
     {
         dir = target.transform.position - transform.position;
         dir = dir.normalized;
+
+        Vector3 arrow = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(arrow.y, arrow.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + rotateAdjustment));
     }
 
     // Update is called once per frame
@@ -56,11 +73,16 @@ public class ProjectileScript : MonoBehaviour
             }
         }
 
-        if(nearestEnemy != null && shortestDistance < hitboxSize)
+        if(nearestEnemy != null && shortestDistance < hitboxSize && hitEnemies.Contains(nearestEnemy) == false)
         {
             EnemyScript enemyScript = (EnemyScript)nearestEnemy.GetComponent(typeof(EnemyScript));
+            hitEnemies.Add(nearestEnemy);
             enemyScript.GetDamaged(damage);
-            Destroy(gameObject);
+            pierces--;
+            if(pierces < 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
