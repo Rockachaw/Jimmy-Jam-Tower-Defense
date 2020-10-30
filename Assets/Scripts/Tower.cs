@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,11 +9,24 @@ public class Tower : MonoBehaviour
 
     private GameObject tower = null;
 
+    private SpriteRenderer spriteRenderer;
+
     public void OnMouseDown()
     {
         TowerHUDHandler hudHandlerReference = Resources.FindObjectsOfTypeAll<TowerHUDHandler>()[0];
         hudHandlerReference.SetSelectedPedestal(gameObject);
         hudHandlerReference.Show();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.gray;
+        GameObject sthReference = GameObject.Find("SelectedTowerHandler");
+        SelectedTowerHandler sthScript = (SelectedTowerHandler)sthReference.GetComponent(typeof(SelectedTowerHandler));
+        sthScript.setCurrTower(this);
+    }
+    public void Deselect()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.white;
     }
     public bool TowerExists()
     {

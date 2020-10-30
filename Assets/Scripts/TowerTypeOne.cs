@@ -102,4 +102,5 @@ public class TowerTypeOne : MonoBehaviour
 
         cooldown = firerate / 60.0f;
     }
+
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeartController : MonoBehaviour
 {
@@ -36,5 +37,6 @@ public class HeartController : MonoBehaviour
             }
         }
         Debug.LogError("Out of health, game over");
+        SceneManager.LoadScene("GameOverScene");
     }
 }

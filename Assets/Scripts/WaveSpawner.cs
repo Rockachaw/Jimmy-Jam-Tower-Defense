@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -27,15 +29,23 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveNumber++;
-
+        UnityEngine.Debug.Log("Starting Wave " + waveNumber);
         for (int i = 0; i < waveNumber; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
         }
+        if(waveNumber >= 10)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+    public int GetWave()
+    {
+        return waveNumber;
     }
 }
