@@ -22,6 +22,10 @@ public class Tower : MonoBehaviour
         GameObject sthReference = GameObject.Find("SelectedTowerHandler");
         SelectedTowerHandler sthScript = (SelectedTowerHandler)sthReference.GetComponent(typeof(SelectedTowerHandler));
         sthScript.setCurrTower(this);
+
+        GameObject rcReference = GameObject.Find("RangeCircle");
+        RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
+        rcScript.MoveRangeCircle(9999, 9999, 1);
     }
     public void Deselect()
     {
@@ -40,6 +44,8 @@ public class Tower : MonoBehaviour
     {
         towerPrefab = newTowerPrefab;
         tower = (GameObject)Instantiate(towerPrefab, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject towerCanvas = GameObject.Find("TowerCanvas");
+        tower.transform.SetParent(towerCanvas.transform);
     }
     public void DestroyTower()
     {

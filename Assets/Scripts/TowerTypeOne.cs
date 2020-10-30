@@ -15,6 +15,9 @@ public class TowerTypeOne : MonoBehaviour
     void Start()
     {
         cooldown = 0;
+        GameObject rcReference = GameObject.Find("RangeCircle");
+        RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
+        rcScript.MoveRangeCircle(transform.position.x, transform.position.y, range);
     }
 
     // Update is called once per frame
@@ -103,4 +106,10 @@ public class TowerTypeOne : MonoBehaviour
         cooldown = firerate / 60.0f;
     }
 
+    public void OnMouseDown()
+    {
+        GameObject rcReference = GameObject.Find("RangeCircle");
+        RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
+        rcScript.MoveRangeCircle(transform.position.x, transform.position.y, range);
+    }
 }
