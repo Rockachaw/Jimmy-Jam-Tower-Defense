@@ -99,4 +99,6 @@ MonoBehaviour:
   damage: 1
   hitboxSize: 0.3
   pierces: 0
+  slowPercent: 0
   rotateAdjustment: -90
+  type: 67

@@ -111,7 +111,7 @@ public class EnemyScript : MonoBehaviour
     void OnGUI()
     {
         healthBarPos = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Box(new Rect(healthBarPos.x - 25, Screen.height - healthBarPos.y - 40, 60, 20), (int)health + "/" + maxHealth);
+        GUI.Box(new Rect(healthBarPos.x - 25, Screen.height - healthBarPos.y - 40, 60, 20), Mathf.Ceil(health) + "/" + maxHealth);
     }
 
     void GetNextWaypoint()
@@ -137,6 +137,7 @@ public class EnemyScript : MonoBehaviour
             GameObject moneyReference = GameObject.Find("Money");
             MoneyHandler moneyScript = (MoneyHandler)moneyReference.GetComponent(typeof(MoneyHandler));
             moneyScript.GainMoney(moneyDropped);
+            SoundManagerScript.PlaySound("death");
 
             Destroy(gameObject);
         }

@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a5dc331dac08d4fb640cf037c0e358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  firerate: 30
+  damage: 3
+  firerate: 120
   range: 2
   projectile: {fileID: 1967025250834044481, guid: d6c88915b920c66499bdd759c1b6d7f2,
     type: 3}

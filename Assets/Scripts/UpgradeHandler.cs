@@ -27,7 +27,7 @@ public class UpgradeHandler : MonoBehaviour
 
             if (towerScript.GetLevel() <= 3)
             {
-                levelCost = towerScript.GetTotalCost() / 2;
+                levelCost = towerScript.GetTotalCost();
                 costText.text = levelCost.ToString();
             }
             else
@@ -61,9 +61,11 @@ public class UpgradeHandler : MonoBehaviour
             towerScript.LevelUp();
             towerScript.AddCost(levelCost);
 
+            SoundManagerScript.PlaySound("upgrade");
+
             if (towerScript.GetLevel() <= 3)
             {
-                levelCost = towerScript.GetTotalCost() / 2;
+                levelCost = towerScript.GetTotalCost();
                 costText.text = levelCost.ToString();
             }
             else

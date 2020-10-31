@@ -54,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveNumber++;
+        SoundManagerScript.PlaySound("nextWave");
         UnityEngine.Debug.Log("Starting Wave " + waveNumber);
 
         switch (waveNumber)
@@ -134,6 +135,7 @@ public class WaveSpawner : MonoBehaviour
 
         if(waveNumber >= 10)
         {
+            SoundManagerScript.PlaySound("win");
             SceneManager.LoadScene("WinScene");
         }
     }

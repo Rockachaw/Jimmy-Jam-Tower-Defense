@@ -33,6 +33,7 @@ public class HeartController : MonoBehaviour
             if(hearts[i] != null)
             {
                 Destroy(hearts[i]);
+                SoundManagerScript.PlaySound("loseLife");
                 return;
             }
         }

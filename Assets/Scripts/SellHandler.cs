@@ -49,5 +49,7 @@ public class SellHandler : MonoBehaviour
 
         sellValue = 0;
         valueText.text = "0";
+        SoundManagerScript.PlaySound("delete");
+
     }
 }

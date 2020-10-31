@@ -23,6 +23,7 @@ public class TowerUIScript : MonoBehaviour
         {
             moneyScript.LoseMoney(price);
             pedestalScript.CreateTower(towerPrefab, price);
+            SoundManagerScript.PlaySound("upgrade");
         }
     }
 

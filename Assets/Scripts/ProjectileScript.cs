@@ -11,10 +11,12 @@ public class ProjectileScript : MonoBehaviour
     public int pierces;
     public float slowPercent;
     public float rotateAdjustment;
+    public char type;
 
     private GameObject target;
     private Vector2 dir;
     private List<GameObject> hitEnemies = new List<GameObject>();
+
 
     public void SetDamage(float newDamage)
     {
@@ -42,6 +44,23 @@ public class ProjectileScript : MonoBehaviour
 
     public void Target()
     {
+        switch (type)
+        {
+            case 'C':
+                SoundManagerScript.PlaySound("candyCorn");
+                break;
+            case 'S':
+                SoundManagerScript.PlaySound("pixyStix");
+                break;
+            case 'G':
+                SoundManagerScript.PlaySound("gumball");
+                break;
+            case 'P':
+                SoundManagerScript.PlaySound("pez");
+                break;
+            default:
+                break;
+        }
         dir = target.transform.position - transform.position;
         dir = dir.normalized;
 

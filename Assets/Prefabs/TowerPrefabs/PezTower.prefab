@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a5dc331dac08d4fb640cf037c0e358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 6
   firerate: 60
   range: 2
   projectile: {fileID: 1165276421710819107, guid: d037c1f9c8fbc614fb2ef8e8584f48b2,
