@@ -44,7 +44,7 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
-        else if(countdown > 0)
+        else if(enemyArray.Length == 0 && countdown > 0)
         {
             countdown -= Time.deltaTime;
         }
@@ -133,7 +133,7 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
 
-        if(waveNumber >= 10)
+        if(waveNumber > 10)
         {
             SoundManagerScript.PlaySound("win");
             SceneManager.LoadScene("WinScene");

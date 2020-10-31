@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604b748d3cecbb542b51612683a9bb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0.5
-  maxHealth: 30
-  moneyDropped: 15
+  maxSpeed: 2
+  maxHealth: 50
+  moneyDropped: 30
   enemySpriteArray:
   - {fileID: 6600354427556170118, guid: 9a796960fc057844e9de22335ba1dcda, type: 3}
   - {fileID: 6457046060896428903, guid: 9a796960fc057844e9de22335ba1dcda, type: 3}

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 0.9
   maxHealth: 15
-  moneyDropped: 6
+  moneyDropped: 5
   enemySpriteArray:
   - {fileID: -6458624479957168985, guid: d5a8aafbb7e63be49b8b933eb2935919, type: 3}
   - {fileID: -6626713376004194206, guid: d5a8aafbb7e63be49b8b933eb2935919, type: 3}

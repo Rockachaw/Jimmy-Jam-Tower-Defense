@@ -146,6 +146,10 @@ public class EnemyScript : MonoBehaviour
     public void GetSlowed(float slowPercent)
     {
         speed = speed * (1f - slowPercent);
+        if(speed < 0.25f * maxSpeed)
+        {
+            speed = 0.25f * maxSpeed;
+        }
     }
 
     public int GetWaypointIndex()
