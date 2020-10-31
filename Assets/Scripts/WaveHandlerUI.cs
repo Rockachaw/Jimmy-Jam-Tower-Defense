@@ -21,6 +21,5 @@ public class WaveHandlerUI : MonoBehaviour
         WaveSpawner waveScript = (WaveSpawner)waveReference.GetComponent(typeof(WaveSpawner));
         currWave = waveScript.GetWave();
         waveText.text = currWave.ToString();
-
     }
 }
