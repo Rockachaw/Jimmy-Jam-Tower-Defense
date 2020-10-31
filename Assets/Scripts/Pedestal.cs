@@ -27,6 +27,12 @@ public class Pedestal : MonoBehaviour
         GameObject rcReference = GameObject.Find("RangeCircle");
         RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
         rcScript.MoveRangeCircle(9999, 9999, 1);
+
+        if (TowerExists())
+        {
+            TowerScript towerScriptReference = (TowerScript)tower.GetComponent(typeof(TowerScript));
+            towerScriptReference.ShowRange();
+        }
     }
     public void Deselect()
     {

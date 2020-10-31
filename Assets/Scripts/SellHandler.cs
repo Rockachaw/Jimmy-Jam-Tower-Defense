@@ -46,5 +46,8 @@ public class SellHandler : MonoBehaviour
         Pedestal selectedPedestal = selectScript.GetSelectedPedestal();
         Pedestal pedestalScript = (Pedestal)selectedPedestal.GetComponent(typeof(Pedestal));
         pedestalScript.DestroyTower();
+
+        sellValue = 0;
+        valueText.text = "0";
     }
 }

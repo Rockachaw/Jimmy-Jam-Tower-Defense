@@ -60,6 +60,17 @@ public class UpgradeHandler : MonoBehaviour
 
             towerScript.LevelUp();
             towerScript.AddCost(levelCost);
+
+            if (towerScript.GetLevel() <= 3)
+            {
+                levelCost = towerScript.GetTotalCost() / 2;
+                costText.text = levelCost.ToString();
+            }
+            else
+            {
+                levelCost = 0f;
+                costText.text = "MAX";
+            }
         }
     }
 }

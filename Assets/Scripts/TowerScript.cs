@@ -148,12 +148,12 @@ public class TowerScript : MonoBehaviour
         cooldown = firerate / 60.0f;
     }
 
-    public void OnMouseDown()
+/*    public void OnMouseDown()
     {
         GameObject rcReference = GameObject.Find("RangeCircle");
         RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
         rcScript.MoveRangeCircle(transform.position.x, transform.position.y, range);
-    }
+    }*/
 
     public void AddCost(float addCost)
     {
@@ -186,5 +186,12 @@ public class TowerScript : MonoBehaviour
             firerate = firerate / 2f;
         }
         level++;
+        ShowRange();
+    }
+    public void ShowRange()
+    {
+        GameObject rcReference = GameObject.Find("RangeCircle");
+        RangeCircle rcScript = (RangeCircle)rcReference.GetComponent(typeof(RangeCircle));
+        rcScript.MoveRangeCircle(transform.position.x, transform.position.y, range);
     }
 }
